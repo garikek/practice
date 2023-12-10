@@ -34,24 +34,12 @@ public class FileReader {
         try (Scanner scanner = new Scanner(new File(folderPath, fileName))) {
             if (scanner.hasNextLine()) {
                 dollar = scanner.nextLine();
-                dollarCourse = parseFile(dollar, regexDollar);
-
-                if (dollarCourse != -1) {
-                    System.out.println(courseDollar + dollarCourse);
-                } else {
-                    System.out.println(exceptionMessage + dollar);
-                }
+                dollarCourse = parseFile(dollar, regexDollar);                
             }
 
             if (scanner.hasNextLine()) {
                 ruble = scanner.nextLine();
-                rubleCourse = parseFile(ruble, regexRuble);
-
-                if (rubleCourse != -1) {
-                    System.out.println(courseRuble + rubleCourse);
-                } else {
-                    System.out.println(exceptionMessage + ruble);
-                }
+                rubleCourse = parseFile(ruble, regexRuble);                
             }
 
             Calculator converter = new Calculator(dollarCourse, rubleCourse, inputString);
@@ -64,9 +52,6 @@ public class FileReader {
     private static final String folderPath = "C:\\Users\\pr0st04uvak\\Desktop\\modsen\\src";
     private static final String fileName = "course.txt";
     private static final String fileError = "File doesn't exist";
-    private static final String courseRuble = "Ruble course: ";
-    private static final String courseDollar = "Dollar course: ";
-    private static final String exceptionMessage = "Error: ";
     private static final String regexRuble = "^\\р(\\d+(\\.\\d+)?)$";
     private static final String regexDollar = "^\\$(\\d+(\\.\\d+)?)$";
 }
